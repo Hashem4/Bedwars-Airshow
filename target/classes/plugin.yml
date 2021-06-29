@@ -1,0 +1,125 @@
+main: com.sprintkeyz.bedwars.Bedwars
+name: BedwarsAirshow
+version: 2.0
+author: SprintKeyz
+api-version: 1.17
+
+commands:
+  revive:
+    description: revives a player!
+    usage: /revive <playername>
+    aliases: [r, reviveplayer]
+
+  stopbasegens:
+    description: stops the generators!
+    usage: /stopredgen
+    aliases: [stopbasegen, stopbases]
+
+  startbasegens:
+    description: starts the generators!
+    usage: /startredgen
+    aliases: [startbasegen, startbases]
+
+  stopdiamonds:
+    description: stops the diamond generators!
+    usage: /stopdiamonds
+    aliases: [stopdiagen, stopdia, stopdias]
+
+  startdiamonds:
+    description: starts the diamond generators!
+    usage: /startdiamonds
+    aliases: [startdiagen, startdia, startdias]
+
+  stopemeralds:
+    description: stops the emerald generators!
+    usage: /stopemeralds
+    aliases: [stopemgen, stopems, stopemeraldgens]
+
+  startemeralds:
+    description: starts the emerald generators!
+    usage: /startemeralds
+    aliases: [startemgen, startems, startemeraldgens]
+
+  vanish:
+    description: makes you invisible!
+    usage: /vanish
+    aliases: [v]
+
+  nick:
+    description: changes your name
+    usage: /nick
+    aliases: [n]
+
+  nickreset:
+    description: resets your name
+    usage: /nickreset
+    aliases: [nr]
+
+  rlc:
+    description: reloads server
+    usage: /rlc
+    aliases: [rlconfirm]
+
+  i:
+    description: gives you an item
+    usage: /i <itemname> <amount>
+    aliases: [giveitem, item]
+
+  clearconsole:
+    description: clears the console
+    usage: /clearconsole
+    aliases: [clearcmd]
+
+  cleargens:
+    description: clears all drops
+    usage: /cleargens
+    aliases: [cleargen, cleardrops]
+
+  stopgens:
+    description: stops all gens
+    usage: /stopgens
+    aliases: [stopgen, stopallgens]
+
+  startgens:
+    description: starts all gens
+    usage: /startgens
+    aliases: [startgen, startgens]
+
+  ready:
+    description: sets you as ready to start
+    usage: /ready
+    aliases: [start, begin]
+
+  lobby:
+    description: sends you to the hub
+    usage: /lobby
+    aliases: [l, hub, spawn]
+
+  send:
+    description: sends a player to a server
+    usage: /send <player> <server>
+    aliases: [ss, sendserver, sendtoserver]
+
+  gmc:
+    description: sets gamemode to creative!
+    usage: /gmc
+
+  gma:
+    description: sets gamemode to adventure!
+    usage: /gma
+
+  gmsp:
+    description: sets gamemode to spectator!
+    usage: /gmsp
+
+  gms:
+    description: sets gamemode to survival!
+    usage: /gms
+
+  fly:
+    description: allows you to fly!
+    usage: /fly
+
+  clearblocks:
+    description: clears player-placed blocks
+    usage: /clearblocks

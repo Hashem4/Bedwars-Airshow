@@ -1,5 +1,7 @@
 package com.sprintkeyz.bedwars.managers;
 
+import com.sprintkeyz.bedwars.commands.BedwarsCommands;
+import com.sprintkeyz.bedwars.events.BedwarsEvents;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -10,7 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Teams {
-    static ScoreboardManager scoreboardManager = Bukkit.getScoreboardManager();
+
     static Scoreboard scoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
 
     static SimpleDateFormat format = new SimpleDateFormat("MM/dd/yy");
@@ -36,6 +38,30 @@ public class Teams {
     public static Objective objective = scoreboard.registerNewObjective("test", "dummy", "§e§lBED WARS");
 
     public static void scoreboard() {
+
+        Scoreboard scoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
+
+        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yy");
+
+        Team red = scoreboard.registerNewTeam("Red");
+        Team gray = scoreboard.registerNewTeam("Gray");
+        Team white = scoreboard.registerNewTeam("White");
+        Team pink = scoreboard.registerNewTeam("Pink");
+        Team aqua = scoreboard.registerNewTeam("Aqua");
+        Team yellow = scoreboard.registerNewTeam("Yellow");
+        Team green = scoreboard.registerNewTeam("Green");
+        Team blue = scoreboard.registerNewTeam("Blue");
+
+        String redStr = "§a✓";
+        String blueStr = "§a✓";
+        String greenStr = "§a✓";
+        String yellowStr = "§a✓";
+        String aquaStr = "§a✓";
+        String whiteStr = "§a✓";
+        String pinkStr = "§a✓";
+        String grayStr = "§a✓";
+
+        Objective objective = scoreboard.registerNewObjective("test", "dummy", "§e§lBED WARS");
 
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
 
@@ -81,6 +107,5 @@ public class Teams {
                 }
             }
         }, 0L, 20L);
-
     }
 }

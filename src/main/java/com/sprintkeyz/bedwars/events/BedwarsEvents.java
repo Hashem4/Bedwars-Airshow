@@ -37,13 +37,18 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scoreboard.Team;
 import org.bukkit.util.Vector;
 
 import java.util.*;
 
 public class BedwarsEvents implements Listener {
 
+    public static int countdown = 20;
+
     public static ArrayList<Player> onCooldownDelKB = new ArrayList<>();
+
+    public static Boolean countdownStarted = false;
 
     public static GameMode gameMode;
     public static int playersJoined = 0;
@@ -1857,16 +1862,35 @@ public class BedwarsEvents implements Listener {
 
         if (playersJoined >= 2) {
             new BukkitRunnable() {
-
-                private int countdown = 15;
-
                 @Override
                 public void run() {
-                    if (countdown >= 2) {
-                        Bukkit.broadcastMessage(ChatColor.RED + "Game starting in " + countdown + " Second(s)!");
+                    if (countdown >= 1) {
+                        if (countdown == 10) {
+                            Bukkit.broadcastMessage(ChatColor.YELLOW + "The game starts in " + ChatColor.GOLD +  countdown + ChatColor.YELLOW + " seconds!");
+                            for (Player p : Bukkit.getOnlinePlayers()) {
+                                p.sendTitle(ChatColor.GREEN + "" + countdown, null, 0, 20, 0);
+                            }
+                        }
+
+                        else if (countdown <= 5 && countdown > 1) {
+                            Bukkit.broadcastMessage(ChatColor.YELLOW + "The game starts in " + ChatColor.RED + countdown + ChatColor.YELLOW + " seconds!");
+                            for (Player p : Bukkit.getOnlinePlayers()) {
+                                p.sendTitle(ChatColor.YELLOW + "" + countdown, null, 0, 20, 0);
+                            }
+                        }
+
+                        else if (countdown == 1) {
+                            Bukkit.broadcastMessage(ChatColor.YELLOW + "The game starts in " + ChatColor.RED + countdown + ChatColor.YELLOW + " second!");
+                            for (Player p : Bukkit.getOnlinePlayers()) {
+                                p.sendTitle(ChatColor.YELLOW + "" + countdown, null, 0, 20, 0);
+                            }
+                        }
+
                         countdown--;
                     } else {
                         cantakedamage = true;
+                        Teams.objective.unregister();
+                        Teams.scoreboard();
                         Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "cleargens");
                         for (Player pl : Bukkit.getServer().getOnlinePlayers()) {
                             if (Teams.red.getEntries().contains(pl.toString()) ||
